@@ -1,0 +1,26 @@
+.main-header
+  .main-header__group
+    .main-header__group--logo
+      group
+    .main-header__group--edit
+      Edit
+  .main-header__members
+    members name
+
+.main-contents
+  .main-contents__post
+    .main-contents__post--name
+      hoshiko
+    .main-contents__post--date
+      2019/11/20
+  .main-contents__comment
+    comment
+  %form
+    .comment
+      %input.comment__box{:placeholder => "post a comment", :type => "text"}/
+      %label{class: "comment__input-btn--image"}
+        = icon('far', 'image')
+        %input.comment__input-btn{:type => "file", :accept => "image/png, image/jpeg"}/
+    %input.submit-btn{:type => "submit", :value => "Send"}
+
+  
