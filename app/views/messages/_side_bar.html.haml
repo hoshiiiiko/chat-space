@@ -1,10 +1,10 @@
 .side-header
   .side-header__username
-    hoshiko
+    = current_user.name
   .side-header__btn
     =link_to "#", class: "sideheader__btn--post" do
       = icon('far', 'edit')
-    =link_to "#", class: "sideheader__btn--setting" do
+    =link_to edit_user_path(current_user), class: "sideheader__btn--setting" do
       = icon('fas', 'cog')
 
 .side-contents
