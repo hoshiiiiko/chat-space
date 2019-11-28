@@ -2,7 +2,7 @@
   .side-header__username
     = current_user.name
   .side-header__btn
-    =link_to "#", class: "sideheader__btn--post" do
+    =link_to new_group_path, class: "sideheader__btn--post" do
       = icon('far', 'edit')
     =link_to edit_user_path(current_user), class: "sideheader__btn--setting" do
       = icon('fas', 'cog')
