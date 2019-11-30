@@ -2,13 +2,16 @@
   .side-header__username
     = current_user.name
   .side-header__btn
-    =link_to "#", class: "sideheader__btn--post" do
+    =link_to new_group_path, class: "sideheader__btn--post" do
       = icon('far', 'edit')
     =link_to edit_user_path(current_user), class: "sideheader__btn--setting" do
       = icon('fas', 'cog')
 
 .side-contents
-  .side-contents__groupname
-    sample
-  .side-contents__comment
-    comment
+  - current_user.groups.each do |group|
+    .side-contents__group
+      = link_to '#' do
+        .side-contents__group--name
+          = group.name
+        .side-contents__group--comment
+          メッセージはまだありません

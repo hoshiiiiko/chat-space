@@ -34,17 +34,24 @@ $font-color: #ffffff;
     .side-contents {
       height: calc(100% - 100px);
       background-color: #2f3e51;
-      padding: 20px;
       box-sizing: border-box;
-      &__groupname {
-        font-size: 15px;
-        font-weight: bold;
+      a:link, a:visited {
         color: $font-color;
+        text-decoration: none;
       }
-      &__comment {
-        font-size: 11px;
-        font-weight: bold;
-        color: $font-color;
+      &__group {
+        padding: 20px 10px;
+        &--name {
+          font-size: 15px;
+          font-weight: bold;
+          color: $font-color;
+        }
+        &--comment {
+          padding-top: 5px;
+          font-size: 11px;
+          font-weight: bold;
+          color: $font-color;
+        }
       }
     }
   }
