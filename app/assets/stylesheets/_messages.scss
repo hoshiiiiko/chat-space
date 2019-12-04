@@ -72,12 +72,15 @@ $font-color: #ffffff;
           padding-bottom: 15px;
         }
         &--edit {
-          color: skyblue;
           border: 1px solid skyblue;
           margin-right: 40px;
           padding: 10px 20px;
           margin-top: 28px;
           margin-bottom: auto;
+          a:link, a:visited {
+            color: skyblue;
+            text-decoration: none;
+          }
         }
       }
       &__members {
@@ -87,11 +90,11 @@ $font-color: #ffffff;
     }
     .main-contents {
       box-sizing: border-box;
-      height: calc(100% - 98px);
-      padding-top: 46px;
+      height: calc( 100% - 98px );
       background-color: #fafafa;
       position: relative;
       &__post {
+        padding-top: 20px;
         display: flex;
         padding-left: 40px;
         &--name {
@@ -110,6 +113,9 @@ $font-color: #ffffff;
         padding-left: 40px;
         font-size: 14px;
         color: #434A54;
+        &--image {
+          height: 100px;
+        }
       }
       .form {
         padding-left: 40px;
