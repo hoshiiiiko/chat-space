@@ -1,25 +1,23 @@
 .main-header
   .main-header__group
     .main-header__group--logo
-      group
+      = @group.name
     .main-header__group--edit
-      Edit
+      = link_to edit_group_path(@group) do
+        Edit
   .main-header__members
-    members name
+    Member:
+    - @group.users.each do |user|
+      = user.name
 
 .main-contents
-  .main-contents__post
-    .main-contents__post--name
-      hoshiko
-    .main-contents__post--date
-      2019/11/20
-  .main-contents__comment
-    comment
-  %form
-    .comment
-      %input.comment__box{placeholder: "post a comment", type: "text"}/
-      %label{class: "comment__input-btn--image"}
-        = icon('far', 'image')
-        %input.comment__input-btn{type: "file", accept: "image/png, image/jpeg"}/
-    %input.submit-btn{type: "submit", value: "Send"}
-
+  = render @messages
+    
+  .form
+    = form_for [@group, @message] do |f|
+      .comment
+        = f.text_field :content, class: 'comment__box', placeholder: 'type a message'
+        = f.label :image, class: "comment__input-btn--image" do
+          = icon('far', 'image')
+          =f.file_field :image, class: "comment__input-btn", accept: "image/png, image/jpeg"
+      = f.submit 'Send', class: "submit-btn"
