@@ -1,11 +1,14 @@
 .main-header
   .main-header__group
     .main-header__group--logo
-      group
+      = @group.name
     .main-header__group--edit
-      Edit
+      = link_to edit_group_path(@group) do
+        Edit
   .main-header__members
-    members name
+    Member:
+    - @group.users.each do |user|
+      = user.name
 
 .main-contents
   = render @messages
