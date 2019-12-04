@@ -8,13 +8,7 @@
     members name
 
 .main-contents
-  .main-contents__post
-    .main-contents__post--name
-      hoshiko
-    .main-contents__post--date
-      2019/11/20
-  .main-contents__comment
-    comment
+  = render @messages
     
   .form
     = form_for [@group, @message] do |f|
