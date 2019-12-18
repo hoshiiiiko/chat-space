@@ -46,9 +46,11 @@ $(function() {
     .done(function(message) {
       var html = buildHTML(message);
       $('.main-contents').append(html);
+      $('.main-contents').animate({ scrollTop: $('.main-contents')[0].scrollHeight});
       $('#message_content').val('');
     })
     .fail(function() {
+      alert("メッセージの送信に失敗しました");
     })
     .always(function() {
       $('.submit-btn').removeAttr('disabled');
