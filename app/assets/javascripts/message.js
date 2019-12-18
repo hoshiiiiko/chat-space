@@ -46,9 +46,12 @@ $(function() {
     .done(function(message) {
       var html = buildHTML(message);
       $('.main-contents').append(html);
-      $('#message-content').val('');
+      $('#message_content').val('');
     })
     .fail(function() {
+    })
+    .always(function() {
+      $('.submit-btn').removeAttr('disabled');
     })
   })
 });
