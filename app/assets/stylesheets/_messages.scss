@@ -90,9 +90,10 @@ $font-color: #ffffff;
     }
     .main-contents {
       box-sizing: border-box;
-      height: calc( 100% - 98px );
+      height: calc( 100% - 188px );
       background-color: #fafafa;
       position: relative;
+      overflow: scroll;
       &__post {
         padding-top: 20px;
         display: flex;
@@ -117,46 +118,46 @@ $font-color: #ffffff;
           height: 100px;
         }
       }
-      .form {
-        padding-left: 40px;
-        background-color: #ddd;
-        position: absolute;
-        bottom: 0;
-        display: block;
-        box-sizing: border-box;
-        width: 100%;
-        .comment {
-          margin: 20px 0;
-          position: relative;
-          display: inline-block;
-          background-color: red;
-          width: calc( 100% - 155px );
-          &__box {
-            height: 50px;
-            width: 100%;
-            padding-left: 10px;
-            border: none;
-          }
-          &__input-btn {
-            display: none;
-            &--image {
-              font-size: 1.5rem;
-              position: absolute;
-              right: 10px;
-              top: 8px;
-              cursor: pointer;
-            }
-          }
-        }
-        .submit-btn {
+    }
+    .form {
+      padding-left: 40px;
+      background-color: #ddd;
+      position: absolute;
+      bottom: 0;
+      display: block;
+      box-sizing: border-box;
+      width: calc( 100% - 300px );
+      .comment {
+        margin: 20px 0;
+        position: relative;
+        display: inline-block;
+        background-color: red;
+        width: calc( 100% - 155px );
+        &__box {
           height: 50px;
-          width: 100px;
-          background-color: #38AEF0;
-          color: $font-color;
-          border-radius: 0%;
-          margin-left: 15px;
-          cursor: pointer;
+          width: 100%;
+          padding-left: 10px;
+          border: none;
         }
+        &__input-btn {
+          display: none;
+          &--image {
+            font-size: 1.5rem;
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            cursor: pointer;
+          }
+        }
+      }
+      .submit-btn {
+        height: 50px;
+        width: 100px;
+        background-color: #38AEF0;
+        color: $font-color;
+        border-radius: 0%;
+        margin-left: 15px;
+        cursor: pointer;
       }
     }
   }
