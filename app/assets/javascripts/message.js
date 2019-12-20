@@ -47,7 +47,7 @@ $(function() {
       var html = buildHTML(message);
       $('.main-contents').append(html);
       $('.main-contents').animate({ scrollTop: $('.main-contents')[0].scrollHeight});
-      $('#message_content').val('');
+      $('#new_message')[0].reset();
     })
     .fail(function() {
       alert("メッセージの送信に失敗しました");
