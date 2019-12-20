@@ -13,11 +13,11 @@
 .main-contents
   = render @messages
     
-  .form
-    = form_for [@group, @message] do |f|
-      .comment
-        = f.text_field :content, class: 'comment__box', placeholder: 'type a message'
-        = f.label :image, class: "comment__input-btn--image" do
-          = icon('far', 'image')
-          =f.file_field :image, class: "comment__input-btn", accept: "image/png, image/jpeg"
-      = f.submit 'Send', class: "submit-btn"
+.form
+  = form_for [@group, @message] do |f|
+    .comment
+      = f.text_field :content, class: 'comment__box', placeholder: 'type a message'
+      = f.label :image, class: "comment__input-btn--image" do
+        = icon('far', 'image')
+        =f.file_field :image, class: "comment__input-btn", accept: "image/png, image/jpeg"
+    = f.submit 'Send', class: "submit-btn"
