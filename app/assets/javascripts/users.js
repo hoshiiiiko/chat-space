@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 
   function appendUser(user) {
     let html = `<div class="chat-group-user clearfix">
@@ -17,7 +17,7 @@ $(function(){
     $('#user-search-result').append(html);
   }
 
-  function deleteUser(name, id) {
+  function addDeleteUser(name, id) {
     var html = `
                 <div class="chat-group-user clearfix" id="${id}">
                   <p class="chat-group-user__name">${name}</p>
@@ -30,7 +30,7 @@ $(function(){
     $(`#${userId}`).append(html);
   }
 
-  $("#user-search-field").on('keyup',function(){
+  $("#user-search-field").on('keyup',function() {
     var input = $("#user-search-field").val();
     $.ajax({
       type: 'GET',
@@ -61,7 +61,7 @@ $(function(){
     $(this)
       .parent()
       .remove();
-    deleteUser(userName, userId);
+    addDeleteUser(userName, userId);
     addMember(userId);
   });
   $(document).on('click', '.chat-group-user__btn--remove',function(){
