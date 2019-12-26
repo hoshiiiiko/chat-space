@@ -6,7 +6,7 @@ $(function(){
                   <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                 </div>
                 `;
-    $('#chat-group-users').append(html);
+    $('#user-search-result').append(html);
   }
 
   function appendNoUser() {
@@ -14,7 +14,16 @@ $(function(){
                   <p class="chat-group-user__name">ユーザーが見つかりません</p>
                 </div>
                 `;
-    $('#chat-group-users').append(html);
+    $('#user-search-result').append(html);
+  }
+
+  function deleteUser(name, id) {
+    var html = `
+                <div class="chat-group-user clearfix" id="${id}">
+                  <p class="chat-group-user__name">${name}</p>
+                  <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+                </div>`;
+    $('.js-add-user').append(html);
   }
 
   $("#user-search-field").on('keyup',function(){
@@ -26,7 +35,7 @@ $(function(){
       data: { keyword: input }
     })
       .done(function(users){
-        $('#chat-group-users').empty();
+        $('#user-search-result').empty();
         if (users.length !== 0) {
           users.forEach(function(user){
             appendUser(user);
@@ -40,5 +49,19 @@ $(function(){
       .fail(function(){
         alert("ユーザー検索に失敗しました");
       });
+  });
+
+  $(document).on('click', '.user-search-add', function() {
+    const userName = $(this).attr('data-user-name');
+    const userId = $(this).attr('data-user-id');
+    $(this)
+      .parent()
+      .remove();
+    deleteUser(userName, userId);
+  });
+  $(document).on('click', '.js-add-user',function(){
+    $(this)
+      .parent()
+      .remove();
   });
 });
