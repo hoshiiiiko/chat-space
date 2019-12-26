@@ -25,6 +25,10 @@ $(function(){
                 </div>`;
     $('.js-add-user').append(html);
   }
+  function addMember(userId) {
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    $(`#${userId}`).append(html);
+  }
 
   $("#user-search-field").on('keyup',function(){
     var input = $("#user-search-field").val();
@@ -51,15 +55,16 @@ $(function(){
       });
   });
 
-  $(document).on('click', '.user-search-add', function() {
+  $(document).on('click', '.chat-group-user__btn--add', function() {
     const userName = $(this).attr('data-user-name');
     const userId = $(this).attr('data-user-id');
     $(this)
       .parent()
       .remove();
     deleteUser(userName, userId);
+    addMember(userId);
   });
-  $(document).on('click', '.js-add-user',function(){
+  $(document).on('click', '.chat-group-user__btn--remove',function(){
     $(this)
       .parent()
       .remove();
