@@ -1,4 +1,21 @@
 $(function() {
+  var reloadMessages = function() {
+    last_message_id = $('.main-contents__comment--sentence:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  
+
   function buildHTML(message) {
     if (message.image) {
       var html = `<div class="main-contents__post">
