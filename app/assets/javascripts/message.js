@@ -18,32 +18,32 @@ $(function() {
 
   function buildHTML(message) {
     if (message.image) {
-      var html = `<div class="main-contents__post">
+      var html = `<div class="main-contents__post" data-message-id="${message.id}">
                     <div class="main-contents__post--name">
-                    ${message.user_name}
+                      ${message.user_name}
                     </div>
                     <div class="main-contents__post--date">
-                    ${message.created_at}
+                      ${message.created_at}
                     </div>
                   </div>
                   <div class="main-contents__comment">
                     <p class="main-contents__comment--sentence">
-                    ${message.content}
+                      ${message.content}
                     </p>
                     <img class="main-contents__comment--image" src="${message.image}" alt="Images">
                   </div>`
     } else {
-      var html = `<div class="main-contents__post">
+      var html = `<div class="main-contents__post" data-message-id="${message.id}">
                     <div class="main-contents__post--name">
-                    ${message.user_name}
+                      ${message.user_name}
                     </div>
                     <div class="main-contents__post--date">
-                    ${message.created_at}
+                      ${message.created_at}
                     </div>
                   </div>
                   <div class="main-contents__comment">
                     <p class="main-contents__comment--sentence">
-                    ${message.content}
+                      ${message.content}
                     </p>
                   </div>`
       }
