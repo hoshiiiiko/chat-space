@@ -77,4 +77,6 @@ $(function() {
       $('.submit-btn').removeAttr('disabled');
     })
   })
+
+  setInterval(reloadMessages, 7000);
 });
