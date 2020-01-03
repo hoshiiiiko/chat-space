@@ -5,6 +5,6 @@
     = message.created_at.strftime("%Y/%m/%d %H:%M")
 .main-contents__comment
   - if message.content.present?
-    %p.main-contents__comment--sentence
+    %p.main-contents__comment--sentence{data: {message: {id: message.id}}}
       = message.content
   = image_tag message.image.url, class: 'main-contents__comment--image' if message.image.present?
