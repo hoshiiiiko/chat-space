@@ -8,11 +8,16 @@ $(function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      var insertHTML = '';
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
-      });
-      $('.main-contents').append(insertHTML);
+      if (message.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main-contents').append(insertHTML);
+        $('.main-contents').animate({ scrollTop: $('.main-contents')[0].scrollHeight});
+        $('#new_message')[0].reset();
+        $('.submit-btn').prop("disabled", false);
+      }
     })
     .fail(function() {
       console.log('error');
