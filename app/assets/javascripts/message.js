@@ -20,14 +20,14 @@ $(function() {
       }
     })
     .fail(function() {
-      console.log('error');
+      alert("メッセージの更新に失敗しました");
     });
   };
   
 
   function buildHTML(message) {
     if (message.image) {
-      var html = `<div class="main-contents__post" data-message-id="${message.id}">
+      var html = `<div class="main-contents__post">
                     <div class="main-contents__post--name">
                       ${message.user_name}
                     </div>
@@ -36,13 +36,13 @@ $(function() {
                     </div>
                   </div>
                   <div class="main-contents__comment">
-                    <p class="main-contents__comment--sentence">
+                    <p class="main-contents__comment--sentence" data-message-id="${message.id}">
                       ${message.content}
                     </p>
                     <img class="main-contents__comment--image" src="${message.image}" alt="Images">
                   </div>`
     } else {
-      var html = `<div class="main-contents__post" data-message-id="${message.id}">
+      var html = `<div class="main-contents__post">
                     <div class="main-contents__post--name">
                       ${message.user_name}
                     </div>
@@ -51,7 +51,7 @@ $(function() {
                     </div>
                   </div>
                   <div class="main-contents__comment">
-                    <p class="main-contents__comment--sentence">
+                    <p class="main-contents__comment--sentence"  data-message-id="${message.id}">
                       ${message.content}
                     </p>
                   </div>`
